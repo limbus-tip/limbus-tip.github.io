@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limbus Company - 인격 도감</title>
+<link rel="icon" href="limbus-tip.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+<div class="logo">
+LIMBUS
+<span>TIP</span>
+</div>
+<div class="header-title">
+인격 도감
+</div>
+</header>
+
+<main class="container">
+
+<!-- 검색 -->
+<section class="search-section">
+<input
+type="text"
+id="searchInput"
+placeholder="인격 이름, 수감자, 키워드, 스킬 등을 검색..."
+>
+</section>
+
+<!-- 필터 -->
+<section class="filter-section">
+<select id="seasonFilter">
+<option value="all">모든 시즌</option>
+<option value="시즌 1">시즌 1</option>
+<option value="시즌 2">시즌 2</option>
+<option value="시즌 3">시즌 3</option>
+<option value="시즌 4">시즌 4</option>
+<option value="시즌 5">시즌 5</option>
+<option value="시즌 6">시즌 6</option>
+<option value="시즌 7">시즌 7</option>
+<option value="시즌 8">시즌 8</option>
+<option value="Standard Fare">Standard Fare</option>
+<option value="Walpurgisnacht">Walpurgisnacht</option>
+</select>
+
+<select id="sinnerFilter">
+<option value="all">모든 수감자</option>
+</select>
+
+<select id="gradeFilter">
+<option value="all">모든 등급</option>
+<option value="3">★★★</option>
+<option value="2">★★</option>
+<option value="1">★</option>
+</select>
+
+<select id="typeFilter">
+<option value="all">모든 공격 유형</option>
+<option value="참격">참격</option>
+<option value="관통">관통</option>
+<option value="타격">타격</option>
+</select>
+
+<select id="sinFilter">
+<option value="all">모든 죄악</option>
+<option value="분노">분노</option>
+<option value="색욕">색욕</option>
+<option value="나태">나태</option>
+<option value="탐식">탐식</option>
+<option value="우울">우울</option>
+<option value="오만">오만</option>
+<option value="질투">질투</option>
+</select>
+</section>
+
+<!-- 인격 목록 -->
+<section class="season-section">
+<h1 id="seasonTitle">전체 인격</h1>
+<div id="identityGrid" class="identity-grid"></div>
+<div id="noResult" class="no-result hidden">
+검색 결과가 없습니다.
+</div>
+</section>
+
+</main>
+
+<footer class="footer">
+이 사이트는 비공식 팬 사이트이며, Limbus Company 및 관련 자산의 저작권은 Project Moon에 있습니다.
+</footer>
+
+<!-- 상세 정보 -->
+<div id="detailModal" class="modal hidden">
+<div class="modal-background"></div>
+<div class="modal-content">
+<button id="closeModal" class="close-button" aria-label="닫기">
+×
+</button>
+<div id="identityDetail"></div>
+</div>
+</div>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
