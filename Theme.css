@@ -1,0 +1,81 @@
+/* =========================================
+   공용: 다크모드 스위치 + 로고 버튼
+   (메인 사이트와 인격 도감 둘 다 불러온다)
+========================================= */
+
+/* 로고 전체가 하나의 버튼(링크) */
+a.logo {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a.logo:hover {
+  opacity: 0.7;
+}
+
+a.logo:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+/* 다크모드 스위치 */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.theme-toggle-track {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background: #bdbdbd;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s;
+}
+
+.theme-toggle[aria-checked="true"] .theme-toggle-track {
+  background: #6d8cff;
+}
+
+.theme-toggle[aria-checked="true"] .theme-toggle-thumb {
+  transform: translateX(20px);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.theme-toggle-label {
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .theme-toggle-label {
+    display: none;
+  }
+}
