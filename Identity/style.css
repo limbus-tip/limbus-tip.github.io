@@ -1,0 +1,929 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family:
+        Arial,
+        "Noto Sans KR",
+        sans-serif;
+
+    background: #101010;
+
+    color: #eeeeee;
+}
+
+
+/* =========================
+   헤더
+========================= */
+
+.header {
+    width: 100%;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 40px;
+
+    background: #171717;
+
+    border-bottom: 1px solid #383838;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    color: #eeeeee;
+}
+
+.logo span {
+    color: #a8a8a8;
+    font-size: 14px;
+
+    display: block;
+
+    letter-spacing: 5px;
+}
+
+.header-title {
+    margin-left: auto;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    color: #cccccc;
+}
+
+
+/* =========================
+   전체
+========================= */
+
+.container {
+    width: min(1400px, 94%);
+
+    margin: 40px auto;
+}
+
+
+/* =========================
+   검색
+========================= */
+
+.search-section {
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    width: 100%;
+
+    height: 60px;
+
+    padding: 0 20px;
+
+    border: 1px solid #444444;
+
+    border-radius: 6px;
+
+    background: #1c1c1c;
+
+    color: white;
+
+    font-size: 17px;
+
+    outline: none;
+}
+
+#searchInput:focus {
+    border-color: #888888;
+}
+
+#searchInput::placeholder {
+    color: #777777;
+}
+
+
+/* =========================
+   필터
+========================= */
+
+.filter-section {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 45px;
+}
+
+.filter-section select {
+    height: 45px;
+
+    padding: 0 12px;
+
+    border: 1px solid #444444;
+
+    border-radius: 5px;
+
+    background: #1c1c1c;
+
+    color: #dddddd;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+.filter-section select:focus {
+    border-color: #888888;
+}
+
+
+/* =========================
+   시즌
+========================= */
+
+.season-section h1 {
+    margin-bottom: 25px;
+
+    font-size: 30px;
+
+    border-left: 5px solid #c7c7c7;
+
+    padding-left: 14px;
+}
+
+
+/* =========================
+   인격 카드
+========================= */
+
+.identity-grid {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+    gap: 20px;
+}
+
+.identity-card {
+    background:
+        linear-gradient(
+            145deg,
+            #242424,
+            #171717
+        );
+
+    border: 1px solid #3c3c3c;
+
+    border-radius: 7px;
+
+    padding: 22px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s,
+        border-color 0.18s,
+        background 0.18s;
+}
+
+.identity-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #858585;
+
+    background:
+        linear-gradient(
+            145deg,
+            #303030,
+            #1a1a1a
+        );
+}
+
+.identity-season {
+    color: #888888;
+
+    font-size: 13px;
+
+    margin-bottom: 12px;
+}
+
+.identity-sinner {
+    color: #aaaaaa;
+
+    font-size: 14px;
+
+    margin-bottom: 6px;
+}
+
+.identity-name {
+    font-size: 21px;
+
+    font-weight: bold;
+
+    margin-bottom: 14px;
+}
+
+.identity-grade {
+    color: #d7d7d7;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+.identity-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+}
+
+.tag {
+    background: #303030;
+
+    border: 1px solid #4a4a4a;
+
+    border-radius: 4px;
+
+    padding: 4px 8px;
+
+    font-size: 12px;
+
+    color: #bbbbbb;
+}
+
+
+/* =========================
+   결과 없음
+========================= */
+
+.no-result {
+    padding: 70px 20px;
+
+    text-align: center;
+
+    color: #777777;
+
+    font-size: 18px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   푸터
+========================= */
+
+.footer {
+    width: min(1400px, 94%);
+
+    margin: 60px auto 30px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #2c2c2c;
+
+    text-align: center;
+
+    color: #666666;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   모달
+========================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+.modal-background {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.82);
+}
+
+.modal-content {
+    position: relative;
+
+    width: min(1000px, 100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: #181818;
+
+    border: 1px solid #444444;
+
+    border-radius: 8px;
+
+    padding: 35px;
+
+    z-index: 2;
+}
+
+.close-button {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #aaaaaa;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    z-index: 3;
+}
+
+.close-button:hover {
+    color: white;
+}
+
+
+/* =========================
+   상세 정보
+========================= */
+
+.detail-header {
+    border-bottom: 1px solid #3c3c3c;
+
+    padding-bottom: 25px;
+
+    margin-bottom: 30px;
+}
+
+.detail-season {
+    color: #888888;
+
+    font-size: 14px;
+}
+
+.detail-sinner {
+    margin-top: 8px;
+
+    color: #aaaaaa;
+}
+
+.detail-name {
+    margin: 8px 0;
+
+    font-size: 34px;
+}
+
+.detail-grade {
+    color: #d5d5d5;
+
+    letter-spacing: 3px;
+}
+
+.detail-section {
+    margin-top: 30px;
+}
+
+.detail-section h3 {
+    font-size: 21px;
+
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    border-left: 4px solid #999999;
+
+    padding-left: 10px;
+}
+
+.detail-keywords,
+.detail-attack-types,
+.detail-sins {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.empty-detail {
+    padding: 25px;
+
+    text-align: center;
+
+    color: #777777;
+
+    background: #202020;
+
+    border: 1px dashed #3d3d3d;
+
+    border-radius: 6px;
+}
+
+
+/* =========================
+   공격 타입 배지
+========================= */
+
+.skill-type {
+    display: inline-block;
+
+    padding: 3px 10px;
+
+    border-radius: 4px;
+
+    border: 1px solid #555555;
+
+    background: #2c2c2c;
+
+    color: #dddddd;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+.skill-type.slash {
+    color: #e8b45c;
+
+    border-color: #7a5a22;
+
+    background: #2d2415;
+}
+
+.skill-type.pierce {
+    color: #7fc4e8;
+
+    border-color: #2a5f7a;
+
+    background: #14262e;
+}
+
+.skill-type.blunt {
+    color: #e88a8a;
+
+    border-color: #7a3030;
+
+    background: #2e1717;
+}
+
+.skill-type.defense {
+    color: #a9d8a0;
+
+    border-color: #3d6b35;
+
+    background: #1a2a18;
+}
+
+
+/* =========================
+   죄악 배지
+========================= */
+
+.sin-badge {
+    display: inline-block;
+
+    padding: 3px 10px;
+
+    border-radius: 4px;
+
+    border: 1px solid #555555;
+
+    background: #2c2c2c;
+
+    color: #dddddd;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+.sin-badge.wrath {
+    color: #ff7b6b;
+    border-color: #8a2f25;
+    background: #2f1714;
+}
+
+.sin-badge.lust {
+    color: #ff9d57;
+    border-color: #8a4a1c;
+    background: #2f2014;
+}
+
+.sin-badge.sloth {
+    color: #f0d44f;
+    border-color: #7d6a14;
+    background: #2c2712;
+}
+
+.sin-badge.gluttony {
+    color: #8fd96a;
+    border-color: #3d7a22;
+    background: #1a2a14;
+}
+
+.sin-badge.gloom {
+    color: #5fd3d3;
+    border-color: #1f6f6f;
+    background: #102a2a;
+}
+
+.sin-badge.pride {
+    color: #7f9cff;
+    border-color: #2f4aa8;
+    background: #141b30;
+}
+
+.sin-badge.envy {
+    color: #c78bff;
+    border-color: #6a3a99;
+    background: #231730;
+}
+
+
+/* =========================
+   스킬
+========================= */
+
+.detail-skill {
+    margin-bottom: 20px;
+
+    padding: 20px;
+
+    background: #202020;
+
+    border: 1px solid #383838;
+
+    border-radius: 6px;
+}
+
+.skill-header {
+    display: flex;
+
+    align-items: baseline;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-bottom: 12px;
+}
+
+.skill-number {
+    color: #888888;
+
+    font-size: 13px;
+}
+
+.skill-name {
+    font-size: 19px;
+
+    font-weight: bold;
+}
+
+.skill-info {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 14px;
+
+    color: #aaaaaa;
+
+    font-size: 14px;
+
+    margin-bottom: 15px;
+}
+
+.skill-description {
+    color: #cccccc;
+
+    line-height: 1.7;
+
+    white-space: pre-line;
+
+    margin-bottom: 15px;
+}
+
+.coins-title {
+    margin-bottom: 8px;
+
+    color: #999999;
+
+    font-size: 13px;
+}
+
+.coin {
+    padding: 12px;
+
+    margin-top: 8px;
+
+    background: #292929;
+
+    border: 1px solid #3d3d3d;
+
+    border-radius: 5px;
+}
+
+.coin-number {
+    font-weight: bold;
+
+    margin-bottom: 5px;
+}
+
+.coin-power {
+    color: #e0e0e0;
+
+    font-size: 14px;
+
+    margin-bottom: 5px;
+}
+
+.coin-effect {
+    color: #bbbbbb;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    white-space: pre-line;
+}
+
+
+/* =========================
+   특이사항 (notes)
+========================= */
+
+.skill-notes {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin: 0 0 15px;
+}
+
+.note-chip {
+    padding: 4px 10px;
+
+    border-radius: 4px;
+
+    border: 1px solid #6b5a2e;
+
+    background: #2a2415;
+
+    color: #e6cf8a;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    white-space: pre-line;
+}
+
+.defense-skill .skill-notes {
+    margin: 12px 0 0;
+}
+
+
+/* =========================
+   방어 스킬 / 패시브
+========================= */
+
+.defense-skill {
+    padding: 20px;
+
+    background: #202020;
+
+    border: 1px solid #383838;
+
+    border-radius: 6px;
+}
+
+.defense-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 10px;
+
+    font-size: 18px;
+}
+
+.defense-power {
+    color: #aaaaaa;
+
+    font-size: 14px;
+
+    margin-bottom: 12px;
+}
+
+.defense-description,
+.passive-box {
+    color: #cccccc;
+
+    line-height: 1.7;
+
+    white-space: pre-line;
+}
+
+.passive-box {
+    padding: 20px;
+
+    background: #202020;
+
+    border: 1px solid #383838;
+
+    border-radius: 6px;
+}
+
+.description {
+    color: #cccccc;
+
+    line-height: 1.7;
+
+    white-space: pre-line;
+}
+
+
+/* =========================
+   모바일
+========================= */
+
+@media (max-width: 700px) {
+
+    .header {
+        height: 75px;
+
+        padding: 0 18px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .header-title {
+        font-size: 15px;
+    }
+
+    .container {
+        width: 92%;
+
+        margin-top: 25px;
+    }
+
+    .filter-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filter-section select {
+        min-width: 0;
+    }
+
+    .identity-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+    .identity-card {
+        padding: 15px;
+    }
+
+    .identity-name {
+        font-size: 17px;
+    }
+
+    .modal-content {
+        padding: 22px;
+    }
+
+    .detail-name {
+        font-size: 27px;
+    }
+}
+
+
+@media (max-width: 430px) {
+
+    .identity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================
+   인격 카드 이미지
+========================================= */
+
+.identity-image-container {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    background: #0b0b0b;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.identity-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    object-fit: cover;
+    object-position: center center;
+
+    border-radius: 6px;
+}
+
+
+/* =========================================
+   상세창 이미지
+========================================= */
+
+.detail-image-container {
+    width: 100%;
+    max-height: 500px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: #0b0b0b;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail-image {
+    width: 100%;
+    max-height: 500px;
+    display: block;
+
+    object-fit: cover;
+    object-position: center center;
+
+    border-radius: 8px;
+}
+
+
+/* =========================================
+   모달이 열렸을 때 배경 스크롤 방지
+========================================= */
+
+body.modal-open {
+    overflow: hidden;
+}
