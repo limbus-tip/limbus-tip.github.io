@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>테스트 페이지</title>
+  <title>Limbus Tip</title>
+
+  <!-- 다크모드는 화면이 그려지기 전에 먼저 적용해야 깜빡이지 않는다 -->
+  <script src="theme.js"></script>
+
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>GitHub 테스트 성공!</h1>
-  <p>이 페이지는 임시 웹사이트 테스트용입니다.</p>
+
+  <header class="header">
+
+    <!-- 로고 전체가 버튼: 누르면 메인으로 -->
+    <a class="logo" href="./" aria-label="Limbus Tip 메인으로">
+      LIMBUS
+      <span>TIP</span>
+    </a>
+
+    <nav class="main-nav">
+      <a href="Identity/">인격 정보</a>
+    </nav>
+
+    <div class="header-right">
+      <button
+        id="themeToggle"
+        class="theme-toggle"
+        type="button"
+        role="switch"
+        aria-checked="false"
+        aria-label="다크모드"
+      >
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb"></span>
+        </span>
+        <span class="theme-toggle-label">다크모드 OFF</span>
+      </button>
+    </div>
+
+  </header>
+
+  <main class="container">
+    <!-- 여기에 메인 페이지 내용이 들어갑니다 -->
+  </main>
+
+  <footer class="footer">
+    이 사이트는 비공식 팬 사이트이며, Limbus Company 및 관련 자산의 저작권은 Project Moon에 있습니다.
+  </footer>
+
 </body>
+
 </html>
