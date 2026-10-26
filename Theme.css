@@ -1,5 +1,5 @@
 /* =========================================
-   공용: 다크모드 스위치 + 로고 버튼
+   공용: 다크모드 버튼 + 로고 버튼
    (메인 사이트와 인격 도감 둘 다 불러온다)
 ========================================= */
 
@@ -20,54 +20,53 @@ a.logo:focus-visible {
   outline-offset: 4px;
 }
 
-/* 다크모드 스위치 */
+/* 다크모드 버튼 (아이콘 + 글자)
+   라이트 모드에서는 달 아이콘, 다크 모드에서는 해 아이콘이 보인다 */
 .theme-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 6px 8px;
-  border: none;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid rgba(128, 128, 128, 0.45);
+  border-radius: 999px;
   background: transparent;
   color: inherit;
   font: inherit;
   font-size: 13px;
   cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
 }
 
-.theme-toggle-track {
-  position: relative;
-  width: 44px;
-  height: 24px;
-  border-radius: 12px;
-  background: #bdbdbd;
-  transition: background 0.2s;
-  flex-shrink: 0;
-}
-
-.theme-toggle-thumb {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
-  transition: transform 0.2s;
-}
-
-.theme-toggle[aria-checked="true"] .theme-toggle-track {
-  background: #6d8cff;
-}
-
-.theme-toggle[aria-checked="true"] .theme-toggle-thumb {
-  transform: translateX(20px);
+.theme-toggle:hover {
+  background: rgba(128, 128, 128, 0.18);
 }
 
 .theme-toggle:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 2px;
-  border-radius: 6px;
+}
+
+.theme-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.theme-icon.icon-sun {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-icon.icon-sun {
+  display: block;
+}
+
+:root[data-theme="dark"] .theme-icon.icon-moon {
+  display: none;
 }
 
 .theme-toggle-label {
@@ -75,6 +74,10 @@ a.logo:focus-visible {
 }
 
 @media (max-width: 700px) {
+  .theme-toggle {
+    padding: 8px;
+  }
+
   .theme-toggle-label {
     display: none;
   }
